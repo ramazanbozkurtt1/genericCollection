@@ -4,12 +4,12 @@ public class Main {
         myCollection.add("Hello World");
         System.out.println(myCollection.getSize());
         System.out.println(myCollection.getCapacity());
-//        addListData();
-//        removeMethod();
-//        indexOfMethod();
-//        lastIndexOfMethod();
-//        isEmptyMethod();
-//        contains();
+        addListData();
+        removeMethod();
+        indexOfMethod();
+        lastIndexOfMethod();
+        isEmptyMethod();
+        contains();
     }
     public static void addListData() {
         GenericCollection<String> myCollection = new GenericCollection<>();
@@ -39,6 +39,7 @@ public class Main {
         list.add(30);
         System.out.println("Third item in list : " + list.get(2));
         list.remove(2);
+        System.out.println("Third item in list : " + list.get(2));
         list.remove(4);
         list.add(40);
         list.set(0, 100);
@@ -73,6 +74,9 @@ public class Main {
         GenericCollection<Integer> sublist2 = list.sublist(2, 9);
         GenericCollection<Integer> sublist3 = list.sublist(-1, 4);
         sublist.clear();
+        System.out.println("Third item in list : " + sublist.get(1));
+        System.out.println(sublist.lastIndexOf(20));
+        System.out.println(sublist.lastIndexOf(40));
         System.out.println(sublist.getSize());
         System.out.println(sublist.getCapacity());
     }
