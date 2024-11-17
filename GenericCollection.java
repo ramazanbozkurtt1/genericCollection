@@ -7,7 +7,7 @@ public class GenericCollection<T>{
 
     @SuppressWarnings("unchecked")
     public GenericCollection(){
-        this.list = (T[]) new Object[10];
+        this.list = (T[]) new Object[this.capacity];
     }
     @SuppressWarnings("unchecked")
     public GenericCollection(int capacity){
@@ -36,8 +36,8 @@ public class GenericCollection<T>{
     public void incSize(){
         this.size = this.size + 1;
     }
-    public void decSize(){
-        this.size = this.size - 1;
+    public void decSize(int amount){
+        this.size = this.size - amount;
     }
 
     public T get(int index){
@@ -61,7 +61,7 @@ public class GenericCollection<T>{
                 this.list[i] = this.list[i+1];
             }
             this.list[getSize() - 1] = null;
-            this.decSize();
+            this.decSize(1);
         }else{
             System.out.println("\nIndex "+index+" out of bound!\n");
         }
@@ -113,10 +113,10 @@ public class GenericCollection<T>{
     }
 
     public void clear(){
-        for(int i = 0;i <= this.getSize();i++){
+        for(int i = 0;i < this.getSize();i++){
             this.list[i] = null;
-            this.decSize();
         }
+        this.decSize(this.getSize());
         this.decCapacity(10);
     }
 
